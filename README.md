@@ -1,3 +1,3 @@
 # Spotify Search
-*Documentação em construção
+* Documentação em construção
 
