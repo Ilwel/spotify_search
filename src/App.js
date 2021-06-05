@@ -9,37 +9,39 @@ const baseUrl = (search) => `https://api.spotify.com/v1/search?q=${search}&type=
 function App() {
 
   const [cardInfos, setCardInfos] = useState([]);
-  const [loading, setLoading]     = useState(false);
-  const [erros, setErros]         = useState('');
+  const [loading, setLoading] = useState(false);
+  const [erros, setErros] = useState('');
 
   async function handleSubmit(e) {
 
     e.preventDefault();
 
-    if(!e.target.value) return;
-    
+    if (!e.target.value) return;
+
     const token = await getSpotifyToken();
     setErros('');
     setLoading(true);
 
     try {
-  
+
       const request = await fetch(baseUrl(e.target.value), {
-  
+
         method: 'GET',
         headers: {
-  
+
           'Authorization': token
-  
+
         }
-  
+
       })
-  
+
       const data = await request.json();
       const { tracks: { items } } = data;
+      console.log(items);
       const cardItems = items.map(item => {
-  
+
         return {
+          id: item.id,
           name: item.name,
           explict: item.explicit,
           url: item.external_urls.spotify,
@@ -47,13 +49,13 @@ function App() {
           albumName: item.album.name,
           albumCover: item.album.images[0].url,
         }
-  
+
       });
-  
+
       setCardInfos(cardItems);
-      
+
     } catch (error) {
-      
+
       setErros(error.message);
 
     }
@@ -66,8 +68,8 @@ function App() {
     <div className="app">
 
       <Input handle={handleSubmit} />
-      {loading && <span className="loading">Loading...</span> }
-      {erros && <div className="erro">Error: {erros}</div> }
+      {loading && <span className="loading">Loading...</span>}
+      {erros && <div className="erro">Error: {erros}</div>}
       <div className="cards">
         {cardInfos.map(card => <Card {...card} />)}
       </div>
