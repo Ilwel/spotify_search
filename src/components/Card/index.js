@@ -1,6 +1,6 @@
 import './styles.css'
 
-function Card({ name, albumCover, albumName, artists, explict, url }) {
+function Card({id, name, albumCover, albumName, artists, explict, url }) {
 
     return (
 
@@ -21,7 +21,14 @@ function Card({ name, albumCover, albumName, artists, explict, url }) {
 
                 </div>
 
-                <img src={albumCover} alt="album cover" />
+                {/* <img src={albumCover} alt="album cover" /> */}
+                <iframe src={`https://open.spotify.com/embed/track/${id}`}
+                    width ="250"
+                    height="250"
+                    frameborder="0"
+                    allowtransparency="true"
+                    allow="encrypted-media"
+                ></iframe>
 
             </div>
 
