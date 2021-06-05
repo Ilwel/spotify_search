@@ -1,0 +1,8 @@
+input{
+
+    all:unset;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--palette-color-1);
+
+}

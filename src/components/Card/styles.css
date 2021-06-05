@@ -1,0 +1,101 @@
+@keyframes apear-card {
+    0%{
+  
+        opacity: 0.5;
+        transform: scale(1);
+  
+    }100%{
+  
+        opacity: 1;
+        transform: scale(1.1);
+  
+    }
+  }
+
+a{
+
+    all:unset;
+    opacity: 0.5;
+
+}
+
+a:hover{
+
+    cursor: pointer;
+    animation: apear-card 1s;
+    animation-fill-mode: forwards;
+
+}
+
+.card{
+
+    display: flex;
+    min-width: 100rem;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 30rem;
+    gap: 1rem;
+    border: dashed 0.2rem var(--palette-color-1);
+    border-radius: 0.5rem;
+    padding: 2rem;
+
+}
+
+.card h1{
+
+    font-size: 1.5rem;
+    color: var(--palette-color-1);
+
+}
+
+.card h2{
+
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--palette-color-2);
+
+}
+
+.card img{
+
+    max-height: 25rem;
+    border-radius: 2rem;
+    opacity: 0.7;
+
+}
+
+.card .infos{
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.card .infos span{
+
+    background-color: black;
+    color: white;
+    width: 5rem;
+    text-align: center;
+
+}
+
+.card .artists{
+
+    display: flex;
+    gap: 1rem;
+
+}
+
+.card .artists p{
+
+    padding: 0.5\rem;
+    color: var(--palette-color-2);
+    border: dashed 0.1rem var(--palette-color-1);
+    border-radius: 0.7rem;
+    display: flex;
+    align-items: center;
+
+}
