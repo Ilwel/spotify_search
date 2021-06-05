@@ -82,6 +82,13 @@ a:hover{
 
 }
 
+.card .capa-player{
+
+    display: flex;
+    gap: 4rem;
+
+}
+
 .card .artists{
 
     display: flex;
